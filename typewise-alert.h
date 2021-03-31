@@ -9,12 +9,7 @@ typedef enum {
 	
 double lowerLimit[]= {0, 0,0};
 double UpperLimit[]= {35, 45,40};
-		      
-struct limittype
-{
-	double lowerLimit[3];
-	double upperLimit[3];
-};
+
 		      
 typedef enum {
   NORMAL,
