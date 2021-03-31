@@ -7,8 +7,8 @@ typedef enum {
 } CoolingType;
 
 	
-double lowerLimit[]= {0, 0,0};
-double upperLimit[]= {35, 45,40};
+double lowerboundary[]= {0, 0,0};
+double upperboundary[]= {35, 45,40};
 
 		      
 typedef enum {
