@@ -6,7 +6,7 @@ typedef enum {
   MED_ACTIVE_COOLING
 } CoolingType;
 
-typdef struct 
+typedef struct 
 {
 	double lowerLimit;
 	double upperLimit;
