@@ -18,7 +18,7 @@ BreachType inferBreach(double value, double lowerboundary, double upperboundary)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
 
-  return inferBreach(temperatureInC,lowerLimit[coolingType], upperLimit[coolingType]);
+  return inferBreach(temperatureInC,lowerLimit[0], upperLimit[0]);
 }
 
 
