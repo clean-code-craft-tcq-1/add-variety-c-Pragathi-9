@@ -16,7 +16,7 @@ BreachType inferBreach(double value, double lowerboundary, double upperboundary)
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
-  limittype limit;
+  struct limittype limit;
   return inferBreach(temperatureInC, limit.lowerLimit[coolingType], limit.upperLimit[coolingType]);
 }
 
