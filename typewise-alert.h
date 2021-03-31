@@ -39,7 +39,7 @@ typedef enum {
 
 //struct BatteryCharacter batteryChar;
 
-void checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC);
+breachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC);
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
