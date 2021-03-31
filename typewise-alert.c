@@ -2,6 +2,8 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
+double lowerboundary[]= {0,0,0};
+double upperboundary[]= {35,45,40};
 
 BreachType inferBreach(double value, double lowerboundary, double upperboundary) {
   if(value < lowerboundary) {
@@ -18,7 +20,7 @@ BreachType inferBreach(double value, double lowerboundary, double upperboundary)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
 
-  return inferBreach(temperatureInC,12, 50);
+  return inferBreach(temperatureInC,lowerboundary[coolingType], upperboundary[coolingType]);
 }
 
 
