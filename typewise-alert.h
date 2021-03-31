@@ -15,8 +15,7 @@ struct limittype
 	double lowerLimit[3];
 	double upperLimit[3];
 };
-
-struct limittype limit;		      
+		      
 typedef enum {
   NORMAL,
   TOO_LOW,
