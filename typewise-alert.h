@@ -8,7 +8,7 @@ typedef enum {
 
 	
 double lowerLimit[]= {0, 0,0};
-double UpperLimit[]= {35, 45,40};
+double upperLimit[]= {35, 45,40};
 
 		      
 typedef enum {
