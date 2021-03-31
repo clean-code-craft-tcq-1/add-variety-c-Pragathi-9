@@ -6,16 +6,15 @@ typedef enum {
   MED_ACTIVE_COOLING
 } CoolingType;
 
+	
 double lowerLimit[]= {0, 0,0};
 double UpperLimit[]= {35, 45,40};
 		      
-typedef struct 
+typedef struct limittype
 {
 	double lowerLimit[];
 	double upperLimit[];
-} limittype;
-
-limittype limit;
+}limit;
 		      
 typedef enum {
   NORMAL,
