@@ -21,7 +21,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 
 
 
-void checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
+BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
 {
 
   BreachType breachType = classifyTemperatureBreach(coolingType, temperatureInC);
@@ -35,6 +35,8 @@ void checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temp
       sendToEmail(breachType);
       break;
   }
+  
+  return breachType;
 }
 
 
