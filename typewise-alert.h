@@ -6,10 +6,6 @@ typedef enum {
   MED_ACTIVE_COOLING
 } CoolingType;
 
-	
-double lowerboundary[]= {0,0,0};
-double upperboundary[]= {35,45,40};
-
 		      
 typedef enum {
   NORMAL,
