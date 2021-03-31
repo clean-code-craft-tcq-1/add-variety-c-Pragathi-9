@@ -2,7 +2,6 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-struct limittype limit;
 
 BreachType inferBreach(double value, double lowerboundary, double upperboundary) {
   if(value < lowerboundary) {
@@ -19,7 +18,7 @@ BreachType inferBreach(double value, double lowerboundary, double upperboundary)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
 
-  return inferBreach(temperatureInC, limit.lowerLimit[coolingType], limit.upperLimit[coolingType]);
+  return inferBreach(temperatureInC,lowerLimit[coolingType], upperLimit[coolingType]);
 }
 
 
