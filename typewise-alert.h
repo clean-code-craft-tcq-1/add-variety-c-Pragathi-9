@@ -12,10 +12,10 @@ double UpperLimit[]= {35, 45,40};
 		      
 typedef struct limittype
 {
-	double lowerLimit[];
-	double upperLimit[];
-}limit;
-		      
+	double lowerLimit[3];
+	double upperLimit[3];
+};
+limittype limit;		      
 typedef enum {
   NORMAL,
   TOO_LOW,
