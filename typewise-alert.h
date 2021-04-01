@@ -24,13 +24,6 @@ typedef enum {
   TO_EMAIL
 } AlertTarget;
 
-//typedef struct {
- // CoolingType coolingType;
-
-//} BatteryCharacter;
-
-//struct BatteryCharacter batteryChar;
-
 BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC);
 
 void sendToController(BreachType breachType);
