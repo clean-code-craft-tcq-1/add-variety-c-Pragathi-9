@@ -4,6 +4,7 @@
 
 double lowerboundary[]= {0,0,0};
 double upperboundary[]= {35,45,40};
+const char* breachtype[]= {"NORMAL", " too LOW", "too HIGH"};
 
 BreachType inferBreach(double value, double lowerlimit, double upperlimit) {
   if(value < lowerlimit) {
