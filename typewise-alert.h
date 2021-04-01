@@ -14,7 +14,7 @@ typedef enum {
 } BreachType;
 
 
-
+const char* breachtype[]= {"NORMAL", " too LOW", "too HIGH"};
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 BreachType inferBreach(double value, double, double);
 
