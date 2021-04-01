@@ -5,11 +5,11 @@
 double lowerboundary[]= {0,0,0};
 double upperboundary[]= {35,45,40};
 
-BreachType inferBreach(double value, double lowerboundary, double upperboundary) {
-  if(value < lowerboundary) {
+BreachType inferBreach(double value, double lowerlimit, double upperlimit) {
+  if(value < lowerlimit) {
     return TOO_LOW;
   }
-  if(value > upperboundary) {
+  if(value > upperlimit) {
     return TOO_HIGH;
   }
   return NORMAL;
@@ -56,16 +56,7 @@ void sendToController(BreachType breachType)
 void sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
-  switch(breachType) {
-    case TOO_LOW:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
-      break;
-    case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
-      break;
-    case NORMAL:
-      break;
-  }
+  printf("To: %s\n", recepient);
+  printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
+  
 }
