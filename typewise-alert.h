@@ -24,15 +24,16 @@ typedef enum {
   TO_EMAIL,
   TO_CONSOLE
 } AlertTarget;
-typedef void (*SendtheAlertMessage) (BreachType breachType);
- SendtheAlertMessage AlertDestination[] = 
-    {
-        sendToController, 
-        sendToEmail, 
-        sendToConsole
-    };
+
 BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC);
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
 void sendToConsole(BreachType breachType);
+typedef void (*SendtheAlertMessage) (BreachType breachType);
+SendtheAlertMessage AlertDestination[] = 
+    {
+        sendToController, 
+        sendToEmail, 
+        sendToConsole
+    };
