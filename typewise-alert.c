@@ -7,7 +7,7 @@ Include header files
 double lowerboundary[]= {0,0,0};
 double upperboundary[]= {35,45,40};
 const char* breachtype[]= {"NORMAL", " too LOW", "too HIGH"};
-BreachType (*SendtheAlertMessage) (AlertTarget alertTarget);
+typedef void (*SendtheAlertMessage) (AlertTarget alertTarget);
  SendtheAlertMessage AlertDestination[] = 
     {
         sendToController, 
