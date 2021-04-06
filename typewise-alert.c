@@ -70,10 +70,15 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
  *********************************************************************************/
 BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
 {
-
+  AlertSuccessful= 0;
   BreachType breachType = classifyTemperatureBreach(coolingType, temperatureInC);
   AlertDestination[alertTarget](breachType);
-  return breachType;
+  if (!AlertSuccessful)
+  {
+      printf("The alert could not be delivered to the target \n");
+         
+   }
+    return breachType; 
 }
 
 
@@ -90,6 +95,7 @@ void sendToController(BreachType breachType)
 {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  AlertSuccessful= 1;
 }
 
 /********************************************************************************
@@ -105,7 +111,7 @@ void sendToEmail(BreachType breachType)
   const char* recepient = "a.b@c.com";
   printf("To: %s\n", recepient);
   printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
-  
+  AlertSuccessful= 1;
 }
 
 /********************************************************************************
@@ -119,5 +125,5 @@ void sendToEmail(BreachType breachType)
 void sendToConsole(BreachType breachType) 
 {
   printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
-  
+  AlertSuccessful= 1;
 }
