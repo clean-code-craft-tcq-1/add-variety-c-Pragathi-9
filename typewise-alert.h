@@ -30,10 +30,3 @@ BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, doubl
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
 void sendToConsole(BreachType breachType);
-typedef void (*SendtheAlertMessage) (BreachType breachType);
-SendtheAlertMessage AlertDestination[] = 
-    {
-        sendToController, 
-        sendToEmail, 
-        sendToConsole
-    };
