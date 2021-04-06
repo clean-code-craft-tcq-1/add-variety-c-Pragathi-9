@@ -14,7 +14,7 @@ typedef enum {
 } BreachType;
 
 
-extern bool AlertSuccessful= 0;
+bool AlertSuccessful;
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 BreachType inferBreach(double value, double, double);
 
