@@ -70,7 +70,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
  *********************************************************************************/
 BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
 {
-  AlertSuccessful= 0;
+  bool AlertSuccessful= 0;
   BreachType breachType = classifyTemperatureBreach(coolingType, temperatureInC);
   AlertDestination[alertTarget](breachType);
   if (!AlertSuccessful)
