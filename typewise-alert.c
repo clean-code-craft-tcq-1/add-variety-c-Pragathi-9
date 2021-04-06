@@ -75,6 +75,9 @@ BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, doubl
     case TO_EMAIL:
       sendToEmail(breachType);
       break;
+    case TO_CONSOLE:
+      sendToConsole(breachType);
+      break;
   }
   
   return breachType;
@@ -108,6 +111,20 @@ void sendToEmail(BreachType breachType)
 {
   const char* recepient = "a.b@c.com";
   printf("To: %s\n", recepient);
+  printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
+  
+}
+
+/********************************************************************************
+ * Function: sendToConsole
+ 
+ * Description: A function that sends the breach status to the Console
+ 
+ * input: breach type
+ *********************************************************************************/
+
+void sendToConsole(BreachType breachType) 
+{
   printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
   
 }
