@@ -7,6 +7,7 @@ Include header files
 double lowerboundary[]= {0,0,0};
 double upperboundary[]= {35,45,40};
 const char* breachtype[]= {"NORMAL", " too LOW", "too HIGH"};
+bool AlertSuccessful;
 typedef void (*SendtheAlertMessage) (BreachType breachType);
 SendtheAlertMessage AlertDestination[] = 
     {
@@ -70,7 +71,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
  *********************************************************************************/
 BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
 {
-  bool AlertSuccessful= 0;
+  AlertSuccessful= 0;
   BreachType breachType = classifyTemperatureBreach(coolingType, temperatureInC);
   AlertDestination[alertTarget](breachType);
   if (!AlertSuccessful)
