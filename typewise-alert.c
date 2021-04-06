@@ -7,7 +7,13 @@ Include header files
 double lowerboundary[]= {0,0,0};
 double upperboundary[]= {35,45,40};
 const char* breachtype[]= {"NORMAL", " too LOW", "too HIGH"};
-
+BreachType (*SendtheAlertMessage) (AlertTarget alertTarget);
+ SendtheAlertMessage AlertDestination[] = 
+    {
+        sendToController, 
+        sendToEmail, 
+        sendToConsole
+    };
 /*********************************************
 Function definitions
 **********************************************/
@@ -65,21 +71,7 @@ BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, doubl
 {
 
   BreachType breachType = classifyTemperatureBreach(coolingType, temperatureInC);
-  //test
-
-  switch(alertTarget) 
-  {
-    case TO_CONTROLLER:
-      sendToController(breachType);
-      break;
-    case TO_EMAIL:
-      sendToEmail(breachType);
-      break;
-    case TO_CONSOLE:
-      sendToConsole(breachType);
-      break;
-  }
-  
+  AlertDestination[](alertTarget);
   return breachType;
 }
 
