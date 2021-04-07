@@ -6,8 +6,8 @@
 TEST_CASE("infers the temperature hasn't breached any limits according to given cooling type") 
 {
   REQUIRE(checkAndAlert(TO_CONTROLLER, PASSIVE_COOLING, 12) == NORMAL);
-  REQUIRE(checkAndAlert(TO_EMAIL, HI_ACTIVE_COOLING, 50) == TOO_HIGH);
-  REQUIRE(checkAndAlert(TO_CONSOLE, MED_ACTIVE_COOLING, -5) == TOO_LOW);
+  REQUIRE(checkAndAlert(TO_EMAIL, HI_ACTIVE_COOLING, 25) == NORMAL);
+  REQUIRE(checkAndAlert(TO_CONSOLE, MED_ACTIVE_COOLING, 30) == NORMAL);
 }
 
 
@@ -20,7 +20,7 @@ TEST_CASE("infers the temperature has breached the higher limit according to coo
 
 TEST_CASE("infers the temperature has breached the lower limit according to cooling type") 
 {
-  REQUIRE(checkAndAlert(TO_CONTROLLER, PASSIVE_COOLING, -20) == NORMAL);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, PASSIVE_COOLING, -20) == TOO_LOW);
   REQUIRE(checkAndAlert(TO_EMAIL, HI_ACTIVE_COOLING, -5) == TOO_LOW);
   REQUIRE(checkAndAlert(TO_CONSOLE, MED_ACTIVE_COOLING, -6) == TOO_LOW);
 }
