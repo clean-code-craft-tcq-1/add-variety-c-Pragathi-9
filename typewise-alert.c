@@ -127,9 +127,9 @@ AlertType sendToConsole(BreachType breachType)
 
 
 /********************************************************************************
- * Function: sendToConsole
+ * Function: Displaystatus
  
- * Description: A function that sends the breach status to the Console
+ * Description: A prints the status of breach in the expected destination
  
  * input: breach type
  *********************************************************************************/
