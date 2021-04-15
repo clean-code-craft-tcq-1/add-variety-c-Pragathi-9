@@ -13,6 +13,10 @@ typedef enum {
   TOO_HIGH
 } BreachType;
 
+typedef enum {
+  AlertFailed,
+  AlertPassed
+}AlertType;
 
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
@@ -25,8 +29,10 @@ typedef enum {
   TO_CONSOLE
 } AlertTarget;
 
-BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC);
 
-void sendToController(BreachType breachType);
-void sendToEmail(BreachType breachType);
-void sendToConsole(BreachType breachType);
+AlertType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC);
+
+AlertType sendToController(BreachType breachType);
+AlertType sendToEmail(BreachType breachType);
+AlertType sendToConsole(BreachType breachType);
+AlertType Displaystatus(BreachType breachType);
