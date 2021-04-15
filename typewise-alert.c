@@ -6,8 +6,11 @@ Include header files
 
 double lowerboundary[]= {0,0,0};
 double upperboundary[]= {35,45,40};
-const char* breachtype[]= {"NORMAL", " too LOW", "too HIGH"};
-bool AlertSuccessful;
+
+const char* breach[]= {"NORMAL", " too LOW", "too HIGH"};
+
+AlertType AlertStatus= AlertFailed;
+
 typedef void (*SendtheAlertMessage) (BreachType breachType);
 SendtheAlertMessage AlertDestination[] = 
     {
@@ -69,17 +72,12 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
  
  * returns: breach type as TOO LOW, HIGH OR NORMAL
  *********************************************************************************/
-BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
+AlertType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, double temperatureInC) 
 {
-  AlertSuccessful= 0;
+ 
   BreachType breachType = classifyTemperatureBreach(coolingType, temperatureInC);
-  AlertDestination[alertTarget](breachType);
-  if (!AlertSuccessful)
-  {
-      printf("The alert could not be delivered to the target \n");
-         
-   }
-    return breachType; 
+  return(AlertDestination[alertTarget](breachType));
+ 
 }
 
 
@@ -92,11 +90,10 @@ BreachType checkAndAlert(AlertTarget alertTarget, CoolingType coolingType, doubl
  * input: breach type
  
  *********************************************************************************/
-void sendToController(BreachType breachType) 
+AlertType sendToController(BreachType breachType) 
 {
   const unsigned short header = 0xfeed;
-  printf("%x : %x\n", header, breachType);
-  AlertSuccessful= 1;
+  return(Displaystatus(breachType));
 }
 
 /********************************************************************************
@@ -107,12 +104,12 @@ void sendToController(BreachType breachType)
  * input: breach type
  *********************************************************************************/
 
-void sendToEmail(BreachType breachType) 
+AlertType sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
   printf("To: %s\n", recepient);
-  printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
-  AlertSuccessful= 1;
+  return(Displaystatus(breachType));
+
 }
 
 /********************************************************************************
@@ -123,8 +120,21 @@ void sendToEmail(BreachType breachType)
  * input: breach type
  *********************************************************************************/
 
-void sendToConsole(BreachType breachType) 
+AlertType sendToConsole(BreachType breachType) 
 {
-  printf("Hi, the BMS temperature is %s\n", breachtype[breachType]);
-  AlertSuccessful= 1;
+  return(Displaystatus(breachType));
+}
+
+
+/********************************************************************************
+ * Function: sendToConsole
+ 
+ * Description: A function that sends the breach status to the Console
+ 
+ * input: breach type
+ *********************************************************************************/
+AlertType Displaystatus(BreachType breachType)
+{
+    printf("Hi, the BMS temperature is %s\n", breach[breachType]);
+    return AlertPassed;
 }
