@@ -11,7 +11,7 @@ const char* breach[]= {"NORMAL", " too LOW", "too HIGH"};
 
 AlertType AlertStatus= AlertFailed;
 
-typedef void (*SendtheAlertMessage) (BreachType breachType);
+typedef AlertType (*SendtheAlertMessage) (BreachType breachType);
 SendtheAlertMessage AlertDestination[] = 
     {
         sendToController, 
